@@ -1,6 +1,6 @@
 package conta.model;
 
-public class Conta {
+public abstract class Conta {
 
     private int numero;
     private int agencia;
@@ -17,84 +17,84 @@ public class Conta {
     }
 
     public int getNumero() {
-        return numero;
+        	return numero;
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        	this.numero = numero;
     }
 
     public int getAgencia() {
-        return agencia;
+        	return agencia;
     }
 
     public void setAgencia(int agencia) {
-        this.agencia = agencia;
+        	this.agencia = agencia;
     }
 
     public int getTipo() {
-        return tipo;
+        	return tipo;
     }
 
     public void setTipo(int tipo) {
-        this.tipo = tipo;
+        	this.tipo = tipo;
     }
 
     public String getTitular() {
-        return titular;
+    		return titular;
     }
 
     public void setTitular(String titular) {
-        this.titular = titular;
+    		this.titular = titular;
     }
 
     public float getSaldo() {
-        return saldo;
+        	return saldo;
     }
 
     public void setSaldo(float saldo) {
-        this.saldo = saldo;
+        	this.saldo = saldo;
     }
 
     public boolean sacar (float valor) {
 
-        if (this.getSaldo() < valor) {
-            System.out.println("Saldo Insuficiente\n");
-            return false;
-        }
+        	if (this.getSaldo() < valor) {
+        		System.out.println("Saldo Insuficiente\n");
+        		return false;
+        	}
 
-        this.setSaldo(this.getSaldo() - valor);
-        return true;
-    }
+        	this.setSaldo(this.getSaldo() - valor);
+        	return true;
+    	}
 
     public void depositar (float valor) {
 
-        this.setSaldo(this.getSaldo() + valor);
+        	this.setSaldo(this.getSaldo() + valor);
 
-    }
+    	}
 
     public void visualizar() {
 
-        String tipo = "";
+        	String tipo = "";
 
-        switch(this.tipo) {
-        case 1:
-            tipo = "Conta Corrente";
-            break;
-        case 2:
-            tipo = "Conta Poupança";
-            break;
-        }
+        	switch(this.tipo) {
+        	case 1:
+        		tipo = "Conta Corrente";
+        		break;
+        	case 2:
+        		tipo = "Conta Poupança";
+        		break;
+        	}
 
-        System.out.println("*************************************************");
-        System.out.println("Dados da conta:");
-        System.out.println("*************************************************");
-        System.out.println("\nNúmero da conta: " + this.numero);
-        System.out.println("Agência: " + this.agencia);
-        System.out.println("Tipo de conta: " + tipo);
-        System.out.println("Titular: " + this.titular);
-        System.out.println("Saldo: " + this.saldo);
-        System.out.println();
+        	System.out.println("*************************************************");
+        	System.out.println("Dados da conta:");
+        	System.out.println("*************************************************");
+        	System.out.println("\nNúmero da conta: " + this.numero);
+        	System.out.println("Agência: " + this.agencia);
+        	System.out.println("Tipo de conta: " + tipo);
+        	System.out.println("Titular: " + this.titular);
+        	System.out.println("Saldo: " + this.saldo);
+        	System.out.println();
 
     }
 

@@ -17,14 +17,6 @@ public class Menu {
     	
         int opcao = 0;
         
-    	//* Teste da Classe Conta
-        Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
-        c1.visualizar();
-        c1.sacar(12000.0f);
-        c1.visualizar();
-        c1.depositar(5000.0f);
-        c1.visualizar();
-        
         //Teste da classe Conta Corrente
         ContaCorrente cc1 = new ContaCorrente(2, 123, 1, "Mariana", 15000.0f, 1000.0f);
         cc1.visualizar();
@@ -43,8 +35,8 @@ public class Menu {
 
         while (true) {
         	
-            System.out.print(Cores.TEXT_PURPLE + Cores.ANSI_BLACK_BACKGROUND
-            				  +"*************************************************");
+            System.out.print(Cores.TEXT_PURPLE + Cores.ANSI_BLACK_BACKGROUND);
+            System.out.println("*************************************************");
             System.out.println("                                                 ");
             System.out.println("              BANCO DO BRAZIL COM Z              ");
             System.out.println("                                                 ");
@@ -134,12 +126,12 @@ public class Menu {
 		
 	   try {
 		   
-		System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
-		System.in.read();
+		   System.out.println(Cores.TEXT_RESET + "\n\nPressione Enter para Continuar...");
+		   System.in.read();
 		
 		} catch(IOException e) {
 			
-			System.out.println("Você pressionou uma tecla diferente de enter!");
+		   System.out.println("Você pressionou uma tecla diferente de enter!");
 		}
 		
 	}
