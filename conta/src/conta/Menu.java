@@ -17,9 +17,9 @@ public class Menu {
 
         ContaController contas = new ContaController();
 
-        int opcao, numero, agencia, tipo, aniversario;
+        int opcao, numero, agencia, tipo, aniversario, numeroDestino;
         String titular;
-        float saldo, limite;
+        float saldo, limite, valor;
 
         System.out.println("\nCriar Contas\n");
 
@@ -130,7 +130,7 @@ public class Menu {
                     System.out.println("Digite o Número da conta: ");
                     numero = scanner.nextInt();
 
-                    if (contas.buscarNaCollection(numero) != null) {
+                    if (contas.buscarContaPorNumero(numero) != null) {
                         agencia = scanner.nextInt(); // Cambiado a nextInt() para agencia
                         scanner.nextLine(); // Consumir la nueva línea pendiente
 
@@ -176,19 +176,51 @@ public class Menu {
                 case 6:
                     System.out.println();
                     System.out.println(Cores.TEXT_WHITE_BOLD + "Saque\n\n");
-                    // Implementa la lógica de saque aquí
+
+                    System.out.println("Digite o Número da conta: ");
+                    numero = scanner.nextInt();
+
+                    do {
+                        System.out.println("Digite o Valor do saque: ");
+                        valor = scanner.nextFloat();
+                    } while (valor <= 0);
+
+                    contas.sacar(numero, valor);
                     keyPress();
                     break;
                 case 7:
                     System.out.println();
                     System.out.println(Cores.TEXT_WHITE_BOLD + "Depósito\n\n");
-                    // Implementa la lógica de depósito aquí
+
+                    System.out.println("Digite o Número da conta: ");
+                    numero = scanner.nextInt();
+
+                    do {
+                        System.out.println("Digite o Valor do Depósito (R$): ");
+                        valor = scanner.nextFloat();
+                    } while (valor <= 0);
+
+                    contas.depositar(numero, valor);
+
                     keyPress();
                     break;
                 case 8:
                     System.out.println();
                     System.out.println(Cores.TEXT_WHITE_BOLD + "Transferência entre Contas\n\n");
-                    // Implementa la lógica de transferencia aquí
+
+                    System.out.println("Digite o Número da Conta de Origem: ");
+                    numero = scanner.nextInt();
+
+                    System.out.println("Digite o Número da Conta de Destino: ");
+                    numeroDestino = scanner.nextInt();
+
+                    do {
+                        System.out.println("Digite o Valor do Depósito (R$): ");
+                        valor = scanner.nextFloat();
+                    } while (valor <= 0);
+
+                    contas.tranferir(numero, numeroDestino, valor);
+
                     keyPress();
                     break;
                 default:
